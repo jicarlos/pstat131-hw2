@@ -1,0 +1,67 @@
+---
+title: "PSTAT131-HW2"
+output: pdf_document
+date: "2022-10-15"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, warning=FALSE, message=FALSE}
+library(tidyverse)
+library(tidymodels)
+```
+
+```{r}
+abalone <- read.csv("abalone.csv")
+```
+
+## 1
+
+```{r}
+abalone["age"] <- abalone$rings + 1.5
+
+# Assess and describe the distribution of age.
+```
+
+## 2
+
+```{r}
+set.seed(1234)
+
+abalone_split <- initial_split(abalone, prop = 0.80, strata = age)
+abalone_train <- training(abalone_split)
+abalone_test  <- testing (abalone_split)
+```
+
+## 3
+
+```{r}
+
+```
+We should not use rings to predict age because the two variables would be very highly correlated. This is because age is equal to rings + 1.5.
+
+## 4
+
+```{r}
+
+```
+
+## 5
+
+```{r}
+
+```
+
+## 6
+
+```{r}
+
+```
+
+## 7
+
+```{r}
+
+```
