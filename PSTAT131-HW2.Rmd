@@ -22,8 +22,12 @@ abalone <- read.csv("abalone.csv")
 ```{r}
 abalone["age"] <- abalone$rings + 1.5
 
-plot(abalone$age)
+abalone %>% 
+  ggplot(aes(x = age)) +
+  geom_histogram(bins = 30) +
+  theme_bw()
 ```
+Age seems to be more or less normally distributed where most of the data is around age = 11 and roughly half of the data is less than 11 and the other half is more than 11. 
 
 ## 2
 
@@ -84,4 +88,4 @@ abalone_train_res <- bind_cols(abalone_train_res, abalone_train %>% select(age))
 
 abalone_metrics(abalone_train_res, truth = age, estimate = .pred)
 ```
-
+The $R^2$ means that the regression model is able to explain 100% of the variability observed in age. 
